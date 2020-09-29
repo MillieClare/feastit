@@ -1,3 +1,28 @@
+/* Styling for description box */
+
+.itemDescription {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 5px;
+}
+
+.expandArrow {
+  color: #666666;
+  margin: 5px;
+  background-color: #eeeeee;
+  border-radius: 4px;
+}
+
+.expandArrow:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* Styling for main container for suppliers */
+
 .suppliersList {
   width: 55%;
   margin: auto;
@@ -12,6 +37,8 @@
   margin-top: 15px;
   border-radius: 5px;
 }
+
+/* Styling for the images, and the bigger images to make sure they fit inside the container */
 
 .supplierImages {
   width: 60px;
@@ -48,6 +75,8 @@
   width: 100%;
   margin: auto;
 }
+
+/* Styling for <ul> most important is 'padding' as otherwise content is off-set */
 
 ul {
   color: #313131;
