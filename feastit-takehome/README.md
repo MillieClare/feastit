@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Feast It - take home task
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+- Made using `create-react-app`
+- Clone the repo, cd into the directory and run `npm install`
+- Check the `package.json` file and ensure scrips are as below:
 
-### `npm start`
+```
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- To run the application `npm start` to run the tests `npm test`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Process, what went well, what I would do differently, what would I do if I had more time
 
-### `npm test`
+### This task ended up being more challenging than I anticipated, and my final product is very different to what I first envisioned, but I had a lot of fun with it.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Originally I wanted filter the endpoint by providing the user with 6 images representing the 6 options and then provide them with the first 10 results for their selection, but due to the time constraints I decided against this.
+  - I am happy that I managed to create fixes for both the description sections and the images.
+  - Descriptions had large amount of text & updating the state to expand them, expanded all item descriptions, the final product does not do this.
+  - Images had a similar issue, but this is also resolved. However some of the smaller photos are stretched due to aspect ratio.
+  - I am sure that React has a nicer way of doing the above, I just didn't work it out in the time I had.
+- `ShowSuppliers`
+  - I wanted to make smaller components e.g. <Name />, <ServiceType />, etc. to keep the file clean, readable, and easy to update. This would also make all the components resuable.
+  - However, my biggest knowledge gap is passing data between components properly. This can also be seen in my tests. By not working this out meant that `ShowSuppliers` ended up being much messier and more difficult to read.
+  - With more time I can easily create a file for the functions I created and import them in. That should make things cleaner.
+- Tests
+  - I was worried about time so I decided to demonstrate how I prefer to write tests, through isolating parts of the logic and testing that to check its behaviour, e.g. pulling out the conditional logic for some of the information.
+  - I was unable to pass in the actual data, and unable to mock it appropriatley (I created a reduced version of the JSON and passed that in), which meant that I couldn't test whether or not the data renders properly on the page.
+- Things that would make the project better:
+  - Lots of small things to improve user experience:
+    - a 1 to 5 star rating to be put under the name instead of a number
+    - Creating card components and using these to display the suppliers side-by-side (could use `flex-wrap`?) using the space on the page more efficiently.
+- Through this project I learned a lot about my own limitations with React, which will allow me to focus my learning as I become more experienced.
