@@ -3,6 +3,7 @@ import "./ShowSuppliers.css";
 
 export default function DisplaySuppliers(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [bigImages, setBigImages] = useState([]);
 
   if (!props.items.length) {
     return (
@@ -21,7 +22,21 @@ export default function DisplaySuppliers(props) {
         const description = item.public.description;
         const shortDescription =
           description.split(/\s+/).slice(0, 20).join(" ") + "...";
-        console.log(shortDescription);
+
+        function setBigImage(i, imageIndex) {
+          var newArray = bigImages.slice();
+          if (newArray[i] === imageIndex) newArray[i] = -1;
+          else newArray[i] = imageIndex;
+          setBigImages(newArray);
+        }
+        function getImageIfExists(index) {
+          var image = item.public.images[bigImages[index]];
+          if (image != null) {
+            if (image.url != null) return image.url;
+          }
+          return "";
+        }
+
         function createMarkup(description) {
           return { __html: description };
         }
@@ -65,19 +80,31 @@ export default function DisplaySuppliers(props) {
             ) : (
               <ul>Customer rating out of 5: {item.external.rating.overall}</ul>
             )}
-            <ul>
-              {/* TODO: Enlarge Images */}
-              Images:
+            <ul className="last">
+              <b>Images:</b>
               <div className="imageContainer">
-                {item.public.images.map((item, index) => {
+                {item.public.images.map((item, imageIndex) => {
                   return (
                     <img
-                      className="supplierImages"
-                      key={index}
+                      onClick={() => setBigImage(index, imageIndex)}
+                      className={
+                        bigImages[index] === imageIndex
+                          ? "supplierImages supplierImageSelected"
+                          : "supplierImages"
+                      }
+                      key={imageIndex}
                       src={item.url}
+                      alt={item.name}
                     />
                   );
                 })}
+              </div>
+              <div className="bigSupplierImageContainer">
+                <img
+                  src={getImageIfExists(index)}
+                  className="bigSupplierImage"
+                  alt={index}
+                />
               </div>
             </ul>
           </div>
