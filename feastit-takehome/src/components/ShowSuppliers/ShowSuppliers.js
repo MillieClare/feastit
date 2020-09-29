@@ -110,9 +110,9 @@ export default function DisplaySuppliers(props) {
               </div>
               <div className="bigSupplierImageContainer">
                 <img
+                  // TODO: a nicer way to include alt tag
                   src={getImageIfExists(index)}
                   className="bigSupplierImage"
-                  alt={index}
                 />
               </div>
             </ul>
