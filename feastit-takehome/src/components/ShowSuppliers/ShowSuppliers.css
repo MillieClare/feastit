@@ -21,6 +21,28 @@
   justify-content: center;
 }
 
+.supplierImages:hover {
+  opacity: 70%;
+}
+
+.supplierImageSelected {
+  border: #ffffff;
+  border-width: 3px;
+  border-style: solid;
+  padding: 0;
+}
+
+.bigSupplierImage {
+  width: 100%;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.bigSupplierImageContainer {
+  display: flex-wrap;
+  margin: auto;
+}
+
 .imageContainer {
   display: flex-wrap;
   width: 100%;
@@ -32,4 +54,8 @@ ul {
   justify-content: center;
   padding: 0px;
   font-size: medium;
+}
+
+ul.last {
+  margin: 0;
 }
