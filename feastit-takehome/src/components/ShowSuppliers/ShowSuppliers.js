@@ -28,9 +28,9 @@ export default function DisplaySuppliers(props) {
     else newArray[i] = imageIndex;
     setBigImages(newArray);
   }
+
   return (
     <div className="suppliersList">
-      <h1>Current Suppliers</h1>
       {props.items[0].results.map((item, index) => {
         const noOfRatings = item.external.numReviews;
         const category = item.categoryTier1;
@@ -38,22 +38,12 @@ export default function DisplaySuppliers(props) {
         const shortDescription =
           description.split(/\s+/).slice(0, 20).join(" ") + "...";
 
-        function setBigImage(i, imageIndex) {
-          var newArray = bigImages.slice();
-          if (newArray[i] === imageIndex) newArray[i] = -1;
-          else newArray[i] = imageIndex;
-          setBigImages(newArray);
-        }
         function getImageIfExists(index) {
-          var image = item.public.images[bigImages[index]];
+          const image = item.public.images[bigImages[index]];
           if (image != null) {
             if (image.url != null) return image.url;
           }
           return "";
-        }
-
-        function createMarkup(description) {
-          return { __html: description };
         }
         return (
           <div key={index} className="suppliers">
@@ -77,11 +67,12 @@ export default function DisplaySuppliers(props) {
                 ></div>{" "}
               </div>
             </ul>
+            <ul>
+              <b>Type of service:</b> {item.tier2[0].name}
             </ul>
-            <ul>Type of service: {item.tier2[0].name}</ul>
             {category === "food" && (
               <ul>
-                Dietary Options:
+                <b>Dietary Options:</b>
                 {item.dietary.map((item, index) => {
                   return <span key={index}> {item.name}, </span>;
                 })}
@@ -94,7 +85,9 @@ export default function DisplaySuppliers(props) {
             {noOfRatings === "0" ? (
               <ul>{item.name} has no rating (yet!)</ul>
             ) : (
-              <ul>Customer rating out of 5: {item.external.rating.overall}</ul>
+              <ul>
+                <b>Customer rating out of 5:</b> {item.external.rating.overall}
+              </ul>
             )}
             <ul className="last">
               <b>Images:</b>
