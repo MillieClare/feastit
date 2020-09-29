@@ -1,5 +1,7 @@
 # Feast It - take home task
 
+![](feastit-takehome\public\feastIt.gif)
+
 ## Usage
 
 - Made using `create-react-app`
