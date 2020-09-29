@@ -1,0 +1,28 @@
+.suppliersList {
+  width: 55%;
+  margin: auto;
+}
+
+.suppliers {
+  width: 55%;
+  margin: auto;
+  border-style: solid;
+  border-width: 5px;
+  background-color: lightgrey;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.supplierImages {
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+.imageContainer {
+  display: flex-wrap;
+  width: 100%;
+  margin: auto;
+}

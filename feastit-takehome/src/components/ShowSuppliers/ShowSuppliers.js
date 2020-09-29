@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ShowSuppliers.css";
 
 export default function DisplaySuppliers(props) {
   const [isOpen, setIsOpen] = useState(false);
