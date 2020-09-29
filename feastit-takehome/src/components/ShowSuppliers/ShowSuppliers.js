@@ -29,6 +29,8 @@ export default function DisplaySuppliers(props) {
           <div key={index} className="suppliers">
             <h2>{item.name}</h2>
             <ul>
+              {/* TODO: Create a box for the text */}
+              {/* TODO: Only expand the text for one supplier at a time */}
               Description:{" "}
               <button onClick={() => setIsOpen(!isOpen)} href="">
                 Click to expand
@@ -64,6 +66,7 @@ export default function DisplaySuppliers(props) {
               <ul>Customer rating out of 5: {item.external.rating.overall}</ul>
             )}
             <ul>
+              {/* TODO: Enlarge Images */}
               Images:
               <div className="imageContainer">
                 {item.public.images.map((item, index) => {
