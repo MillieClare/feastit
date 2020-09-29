@@ -1,6 +1,6 @@
 # Feast It - take home task
 
-![](/public\feastIt.gif)
+![](feastIt.gif)
 
 ## Usage
 
